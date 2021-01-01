@@ -35,6 +35,12 @@ pub const (
 		'.wasm': 'application/wasm'
 		'.xml':  'text/xml; charset=utf-8'
 	}
+	status = {
+		200: '200 OK'
+		401: '401 Unauthorized'
+		404: '404 Not Found'
+		500: 'Internal Server Error'
+	}
 	max_http_post_size      = 1024 * 1024
 	default_port            = 8080
 )
@@ -97,6 +103,10 @@ pub fn (mut ctx Context) send_response_to_client(mimetype string, res string) bo
 	}
 	send_string(ctx.conn, s) or { return false }
 	return true
+}
+
+pub fn (mut ctx Context) set_status(status string) {
+	ctx.status = status
 }
 
 pub fn (mut ctx Context) html(s string) {
