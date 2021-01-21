@@ -2,7 +2,7 @@
 // Use of this source code is governed by an MIT license
 // that can be found in the LICENSE file.
 module tmpl
-
+/*
 import os
 import strings
 
@@ -146,5 +146,7 @@ _ = footer
 	s.writeln('_tmpl_res_$fn_name := sb.str() ')
 	s.writeln('}')
 	s.writeln('// === end of vweb html template ===')
+	eprintln(s.str())
 	return s.str()
 }
+*/
